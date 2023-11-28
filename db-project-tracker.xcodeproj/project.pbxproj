@@ -10,6 +10,7 @@
 		836D7A1B2B15A73B008EB4F4 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D7A1A2B15A73B008EB4F4 /* FontHelper.swift */; };
 		836D7A1E2B1649F8008EB4F4 /* StatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D7A1D2B1649F8008EB4F4 /* StatBubbleView.swift */; };
 		836D7A202B164B6E008EB4F4 /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D7A1F2B164B6E008EB4F4 /* ProjectCardView.swift */; };
+		836D7A222B165838008EB4F4 /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D7A212B165838008EB4F4 /* AddProjectView.swift */; };
 		83CADAF62AFDF80B00ECF025 /* DBProjectTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CADAF52AFDF80B00ECF025 /* DBProjectTracker.swift */; };
 		83CADAF82AFDF80B00ECF025 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CADAF72AFDF80B00ECF025 /* ProjectListView.swift */; };
 		83CADAFA2AFDF80C00ECF025 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83CADAF92AFDF80C00ECF025 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		836D7A1A2B15A73B008EB4F4 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		836D7A1D2B1649F8008EB4F4 /* StatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBubbleView.swift; sourceTree = "<group>"; };
 		836D7A1F2B164B6E008EB4F4 /* ProjectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
+		836D7A212B165838008EB4F4 /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
 		83CADAF22AFDF80B00ECF025 /* db-project-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "db-project-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CADAF52AFDF80B00ECF025 /* DBProjectTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProjectTracker.swift; sourceTree = "<group>"; };
 		83CADAF72AFDF80B00ECF025 /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				83CADAF72AFDF80B00ECF025 /* ProjectListView.swift */,
 				836D7A1D2B1649F8008EB4F4 /* StatBubbleView.swift */,
 				836D7A1F2B164B6E008EB4F4 /* ProjectCardView.swift */,
+				836D7A212B165838008EB4F4 /* AddProjectView.swift */,
 			);
 			path = "Project List";
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			files = (
 				83CADB072AFDF8C300ECF025 /* ProjectUpdate.swift in Sources */,
 				836D7A1B2B15A73B008EB4F4 /* FontHelper.swift in Sources */,
+				836D7A222B165838008EB4F4 /* AddProjectView.swift in Sources */,
 				83CADAF82AFDF80B00ECF025 /* ProjectListView.swift in Sources */,
 				83CADAF62AFDF80B00ECF025 /* DBProjectTracker.swift in Sources */,
 				836D7A1E2B1649F8008EB4F4 /* StatBubbleView.swift in Sources */,
