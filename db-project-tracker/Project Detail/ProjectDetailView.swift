@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectDetailView: View {
-    
+    @State var update: ProjectUpdate?
     @Environment(\.dismiss) private var dismiss
     var project: Project
     
@@ -47,7 +47,7 @@ struct ProjectDetailView: View {
                             .font(.featuredText)
                     }
                     .padding(.leading)
-
+                    
                 }
                 .padding()
                 .foregroundStyle(.white)
@@ -60,14 +60,10 @@ struct ProjectDetailView: View {
                 
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 27) {
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
+                        ForEach(project.updates) { update in
+                            ProjectUpdateView(update: update)
+                            
+                        }
                     }
                     .padding()
                     .padding(.bottom, 75)
@@ -78,12 +74,13 @@ struct ProjectDetailView: View {
                 HStack {
                     Button {
                         //Todo : add project update
+                        self.update = ProjectUpdate()
                     } label: {
                         ZStack{
                             Circle()
                                 .foregroundStyle(.black)
                                 .frame(width: 65)
-                                
+                            
                             Image("cross")
                         }
                     }
@@ -107,9 +104,13 @@ struct ProjectDetailView: View {
                         .ignoresSafeArea()
                 }
             }
-
+            
         }
         .navigationBarBackButtonHidden(true)
+        .sheet(item: $update) { update in
+            AddUpdateView(update: update, project: project)
+                .presentationDetents([.fraction(0.3)])
+        }
     }
 }
 
