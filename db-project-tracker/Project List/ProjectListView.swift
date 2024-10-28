@@ -31,7 +31,9 @@ struct ProjectListView: View {
                     ScrollView (showsIndicators: false) {
                         VStack(alignment: .leading, spacing: 26) {
                             
-                            ForEach(projects) { p in
+                            ForEach(projects.sorted(by: { p1, p2 in
+                                p1.startDate < p2.startDate
+                            })) { p in
                                 
                                 NavigationLink {
                                     ProjectDetailView(project: p)
@@ -42,8 +44,6 @@ struct ProjectListView: View {
                             }
                         }
                     }
-                    
-                    
                 }
                 .padding()
                 

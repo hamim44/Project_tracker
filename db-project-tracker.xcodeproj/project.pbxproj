@@ -21,6 +21,7 @@
 		926A1FAC2CCD73E00029EBED /* ProjectUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926A1FAB2CCD73E00029EBED /* ProjectUpdateView.swift */; };
 		928E3F7B2CCECA740026E07C /* AddUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E3F7A2CCECA740026E07C /* AddUpdateView.swift */; };
 		928E3F7D2CCED1180026E07C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E3F7C2CCED1180026E07C /* DateHelper.swift */; };
+		928E3F7F2CCF81330026E07C /* EditFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E3F7E2CCF81330026E07C /* EditFocusView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		926A1FAB2CCD73E00029EBED /* ProjectUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateView.swift; sourceTree = "<group>"; };
 		928E3F7A2CCECA740026E07C /* AddUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateView.swift; sourceTree = "<group>"; };
 		928E3F7C2CCED1180026E07C /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		928E3F7E2CCF81330026E07C /* EditFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFocusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				836D7A242B166F32008EB4F4 /* ProjectDetailView.swift */,
 				926A1FAB2CCD73E00029EBED /* ProjectUpdateView.swift */,
 				928E3F7A2CCECA740026E07C /* AddUpdateView.swift */,
+				928E3F7E2CCF81330026E07C /* EditFocusView.swift */,
 			);
 			path = "Project Detail";
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			files = (
 				83CADB072AFDF8C300ECF025 /* ProjectUpdate.swift in Sources */,
 				836D7A1B2B15A73B008EB4F4 /* FontHelper.swift in Sources */,
+				928E3F7F2CCF81330026E07C /* EditFocusView.swift in Sources */,
 				836D7A252B166F32008EB4F4 /* ProjectDetailView.swift in Sources */,
 				836D7A222B165838008EB4F4 /* AddProjectView.swift in Sources */,
 				83CADAF82AFDF80B00ECF025 /* ProjectListView.swift in Sources */,

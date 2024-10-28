@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ProjectDetailView: View {
+    
     @State var update: ProjectUpdate?
+    @State var showEditFocus = false
     @Environment(\.dismiss) private var dismiss
     var project: Project
     
@@ -42,9 +44,20 @@ struct ProjectDetailView: View {
                     Text("My current focud is...")
                         .font(.featuredText)
                     HStack {
-                        Image(systemName: "checkmark.square")
-                        Text("Design the new website")
+                        if(project.focus.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
+                            Button {
+                                completeMilestorne()
+                            } label: {
+                                Image(systemName: "checkmark.square")
+                            }
+
+                        }
+                        
+                        Text(project.focus.trimmingCharacters(in: .whitespacesAndNewlines) == "" ? "Tap to set focus": project.focus)
                             .font(.featuredText)
+                            .onTapGesture {
+                                showEditFocus = true
+                            }
                     }
                     .padding(.leading)
                     
@@ -60,7 +73,9 @@ struct ProjectDetailView: View {
                 
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 27) {
-                        ForEach(project.updates) { update in
+                        ForEach(project.updates.sorted(by: { u1, u2 in
+                            u1.date > u2.date
+                        })) { update in
                             ProjectUpdateView(update: update)
                             
                         }
@@ -111,6 +126,20 @@ struct ProjectDetailView: View {
             AddUpdateView(update: update, project: project)
                 .presentationDetents([.fraction(0.3)])
         }
+        .sheet(isPresented: $showEditFocus) {
+            EditFocusView(project: project)
+                .presentationDetents([.fraction(0.2)])
+        }
+    }
+    
+    func completeMilestorne() {
+        let update = ProjectUpdate()
+        update.updateType = .milestone
+        update.headline = "Milestone Achieved"
+        update.summary = project.focus
+        project.updates.insert(update, at: 0)
+        
+        project.focus = ""
     }
 }
 
