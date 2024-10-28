@@ -22,6 +22,7 @@
 		928E3F7B2CCECA740026E07C /* EditUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E3F7A2CCECA740026E07C /* EditUpdateView.swift */; };
 		928E3F7D2CCED1180026E07C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E3F7C2CCED1180026E07C /* DateHelper.swift */; };
 		928E3F7F2CCF81330026E07C /* EditFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E3F7E2CCF81330026E07C /* EditFocusView.swift */; };
+		928E3F812CD02A6E0026E07C /* StatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E3F802CD02A6E0026E07C /* StatHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		928E3F7A2CCECA740026E07C /* EditUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUpdateView.swift; sourceTree = "<group>"; };
 		928E3F7C2CCED1180026E07C /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		928E3F7E2CCF81330026E07C /* EditFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFocusView.swift; sourceTree = "<group>"; };
+		928E3F802CD02A6E0026E07C /* StatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				836D7A1A2B15A73B008EB4F4 /* FontHelper.swift */,
 				928E3F7C2CCED1180026E07C /* DateHelper.swift */,
+				928E3F802CD02A6E0026E07C /* StatHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				926A1FAC2CCD73E00029EBED /* ProjectUpdateView.swift in Sources */,
 				836D7A202B164B6E008EB4F4 /* ProjectCardView.swift in Sources */,
 				928E3F7D2CCED1180026E07C /* DateHelper.swift in Sources */,
+				928E3F812CD02A6E0026E07C /* StatHelper.swift in Sources */,
 				83CADB052AFDF86200ECF025 /* Project.swift in Sources */,
 				928E3F7B2CCECA740026E07C /* EditUpdateView.swift in Sources */,
 			);

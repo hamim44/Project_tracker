@@ -20,7 +20,7 @@ struct EditUpdateView: View {
     @State private var summary: String = ""
     @State private var hours: String = ""
     @State private var showConfirmation: Bool = false
-
+    
     
     var body: some View {
         
@@ -42,16 +42,28 @@ struct EditUpdateView: View {
                     TextField("Hours", text: $hours)
                         .frame(width: 60)
                         .keyboardType(.numberPad)
-                        
+                    
                     Spacer()
                     Button(isEditMode ? "Save" : "add") {
+                        
+                        // Keep track of the difference in hours for an edit update
+                        let hoursDifferents = update.hours - Double(hours)!
                         
                         update.headline = headline
                         update.summary = summary
                         update.hours = Double(hours)!
                         
                         if !isEditMode {
+                            // Add project Update
                             project.updates.insert(update, at: 0)
+                            
+                            // force a swiftdata save
+                            try? context.save()
+                            
+                            // Update stats
+                            StatHelper.updateAdded(project: project, update: update)
+                        } else {
+                            StatHelper.updateEdited(project: project, hoursDifferents: hoursDifferents)
                         }
                         
                         dismiss()
@@ -75,11 +87,15 @@ struct EditUpdateView: View {
             .padding(.top)
             .textFieldStyle(.roundedBorder)
         }
-        .confirmationDialog("Really delete the update?", isPresented: $showConfirmation) {
+        .confirmationDialog("Really delete the update?", isPresented: $showConfirmation,titleVisibility: .visible) {
             Button("Yes, delete it") {
                 project.updates.removeAll { u in
                     u.id == update.id
                 }
+                // force a swiftdata save
+                try? context.save()
+                // delete Update
+                StatHelper.updateDeleted(project: project, update: update)
                 dismiss()
             }
         }

@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProjectDetailView: View {
     
     @State var NewUpdate: ProjectUpdate?
     @State var showEditFocus = false
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) var context
     var project: Project
     
     var body: some View {
@@ -33,10 +35,10 @@ struct ProjectDetailView: View {
                     
                     HStack(alignment: .center,spacing: 13) {
                         Spacer()
-                        StatBubbleView(title: "Hours", stat: "290", startColor: Color("Navy"), endColor: Color("Sky Blue"))
-                        StatBubbleView(title: "Sessions", stat: "34", startColor: Color("Turtle Green"), endColor: Color("Lime"))
-                        StatBubbleView(title: "Updates", stat: "32", startColor: Color("Maroon"), endColor: Color("Fuschia"))
-                        StatBubbleView(title: "Wins", stat: "9", startColor: Color("Maroon"), endColor: Color("Olive"))
+                        StatBubbleView(title: "Hours", stat: String(project.hours), startColor: Color("Navy"), endColor: Color("Sky Blue"))
+                        StatBubbleView(title: "Sessions", stat: String(project.sessions), startColor: Color("Turtle Green"), endColor: Color("Lime"))
+                        StatBubbleView(title: "Updates", stat: String(project.updates.count), startColor: Color("Maroon"), endColor: Color("Fuschia"))
+                        StatBubbleView(title: "Wins", stat: String(project.wins), startColor: Color("Maroon"), endColor: Color("Olive"))
                         Spacer()
                         
                     }
@@ -139,12 +141,20 @@ struct ProjectDetailView: View {
     }
     
     func completeMilestorne() {
+        //create a new project update for milestone
         let update = ProjectUpdate()
         update.updateType = .milestone
         update.headline = "Milestone Achieved"
         update.summary = project.focus
         project.updates.insert(update, at: 0)
         
+        // force a swiftdata save
+        try? context.save()
+        
+        //Update the stats
+        StatHelper.updateAdded(project: project, update: update)
+        
+        //clear the project focus
         project.focus = ""
     }
 }
