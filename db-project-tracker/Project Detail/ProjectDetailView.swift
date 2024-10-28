@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProjectDetailView: View {
     
-    @State var update: ProjectUpdate?
+    @State var NewUpdate: ProjectUpdate?
     @State var showEditFocus = false
     @Environment(\.dismiss) private var dismiss
     var project: Project
@@ -77,6 +77,11 @@ struct ProjectDetailView: View {
                             u1.date > u2.date
                         })) { update in
                             ProjectUpdateView(update: update)
+                                .onTapGesture {
+                                }
+                                .onLongPressGesture {
+                                    NewUpdate = update
+                                }
                             
                         }
                     }
@@ -89,7 +94,7 @@ struct ProjectDetailView: View {
                 HStack {
                     Button {
                         //Todo : add project update
-                        self.update = ProjectUpdate()
+                        self.NewUpdate = ProjectUpdate()
                     } label: {
                         ZStack{
                             Circle()
@@ -122,8 +127,9 @@ struct ProjectDetailView: View {
             
         }
         .navigationBarBackButtonHidden(true)
-        .sheet(item: $update) { update in
-            AddUpdateView(update: update, project: project)
+        .sheet(item: $NewUpdate) { update in
+            let isEdit = update.headline.trimmingCharacters(in: .whitespacesAndNewlines) != ""
+            EditUpdateView(update: update, project: project, isEditMode: isEdit)
                 .presentationDetents([.fraction(0.3)])
         }
         .sheet(isPresented: $showEditFocus) {
