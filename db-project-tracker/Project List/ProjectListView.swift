@@ -12,6 +12,7 @@ struct ProjectListView: View {
     
     @State private var newProject: Project?
     @Query private var projects: [Project]
+    @State private var showProjectDetails: Project?
     
     
     var body: some View {
@@ -32,16 +33,16 @@ struct ProjectListView: View {
                         VStack(alignment: .leading, spacing: 26) {
                             
                             ForEach(projects.sorted(by: { p1, p2 in
-                                p1.startDate < p2.startDate
-                            })) { p in
-                                
-                                NavigationLink {
-                                    ProjectDetailView(project: p)
-                                } label: {
+                                p1.startDate < p2.startDate })) { p in
                                     ProjectCardView(project: p)
+                                        .onTapGesture {
+                                            showProjectDetails = p
+                                        }
+                                        .onLongPressGesture {
+                                            newProject = p
+                                        }
+
                                 }
-                                .buttonStyle(.plain)
-                            }
                         }
                     }
                 }
@@ -66,9 +67,13 @@ struct ProjectListView: View {
                 }
                 .padding(.leading)
             }
+            .navigationDestination(item: $showProjectDetails) { project in
+                ProjectDetailView(project: project)
+            }
         }
         .sheet(item: $newProject) { project in
-            AddProjectView(project: project)
+            let isEdit = project.name.trimmingCharacters(in: .whitespacesAndNewlines) != ""
+            EditProjectView(project: project, isEditMode: isEdit)
                 .presentationDetents([.fraction(0.2)])
         }
     }
