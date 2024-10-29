@@ -107,7 +107,7 @@
 		83CADAF42AFDF80B00ECF025 /* db-project-tracker */ = {
 			isa = PBXGroup;
 			children = (
-				83CADAF52AFDF80B00ECF025 /* DBProjectTracker.swift */,
+				92994A992CD0DFB3000DF9A4 /* App */,
 				836D7A1C2B1649DE008EB4F4 /* Project List */,
 				836D7A232B166F21008EB4F4 /* Project Detail */,
 				83CADB032AFDF85000ECF025 /* Models */,
@@ -133,6 +133,14 @@
 				83CADB062AFDF8C300ECF025 /* ProjectUpdate.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		92994A992CD0DFB3000DF9A4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				83CADAF52AFDF80B00ECF025 /* DBProjectTracker.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
