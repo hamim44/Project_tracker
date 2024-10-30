@@ -28,22 +28,35 @@ struct ProjectListView: View {
                     Text("Projects")
                         .font(.screenHeading)
                         .foregroundStyle(Color.white)
-                    
-                    ScrollView (showsIndicators: false) {
-                        VStack(alignment: .leading, spacing: 26) {
-                            
-                            ForEach(projects.sorted(by: { p1, p2 in
-                                p1.startDate < p2.startDate })) { p in
-                                    ProjectCardView(project: p)
-                                        .onTapGesture {
-                                            showProjectDetails = p
-                                        }
-                                        .onLongPressGesture {
-                                            newProject = p
-                                        }
-
-                                }
+                    if projects.count > 0 {
+                        ScrollView (showsIndicators: false) {
+                            VStack(alignment: .leading, spacing: 26) {
+                                
+                                ForEach(projects.sorted(by: { p1, p2 in
+                                    p1.startDate < p2.startDate })) { p in
+                                        ProjectCardView(project: p)
+                                            .onTapGesture {
+                                                showProjectDetails = p
+                                            }
+                                            .onLongPressGesture {
+                                                newProject = p
+                                            }
+                                        
+                                    }
+                            }
                         }
+                    } else {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Button("Tap to add a new project") {
+                                newProject = Project()
+                            }
+                            .buttonStyle(.bordered)
+                            .foregroundStyle(.white)
+                            Spacer()
+                        }
+                        Spacer()
                     }
                 }
                 .padding()
